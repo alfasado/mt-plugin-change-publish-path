@@ -1,0 +1,27 @@
+id  : ChangePublishPath
+key : changepublishpath
+name: Change Publish Path
+version: 0.1
+author_name: Alfasado Inc.
+author_link: http://alfasado.net/
+description: <__trans phrase="It changes publish path.">
+l10n_class: ChangePublishPath::L10N
+blog_config_template: config.tmpl
+settings:
+    changepublishpath:
+    cpp_copy_asset:
+    cpp_screen_text:
+    cpp_remove_file:
+callbacks:
+    MT::App::CMS::pre_run: $changepublishpath::ChangePublishPath::Plugin::_pre_run
+    MT::App::CMS::template_param.rebuilding: $changepublishpath::ChangePublishPath::Plugin::_rebuilding
+    MT::App::CMS::template_source.rebuilding: $changepublishpath::ChangePublishPath::Plugin::_rebuilding_source
+    MT::App::CMS::template_param.rebuild_confirm: $changepublishpath::ChangePublishPath::Plugin::_rebuild_confirm
+    MT::App::CMS::template_source.rebuilt: $changepublishpath::ChangePublishPath::Plugin::_rebuilt_source
+    build_page: 
+        - handler: $changepublishpath::ChangePublishPath::Plugin::_build_page
+          priority: 10
+    build_file:
+        - handler: $changepublishpath::ChangePublishPath::Plugin::_build_file
+          priority: 10
+

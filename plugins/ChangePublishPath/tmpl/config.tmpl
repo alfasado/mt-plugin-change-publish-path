@@ -1,0 +1,29 @@
+<mtapp:setting
+    id="changepublishpath"
+    label="<__trans phrase="Change publish path">">
+<ul>
+<li><label><input type="text" name="changepublishpath" id="changepublishpath" value="<mt:var name="changepublishpath" escape="html">" /></label></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="cpp_screen_text"
+    label="<__trans phrase="Label on screen">">
+<ul>
+<li><label><input type="text" name="cpp_screen_text" id="cpp_screen_text" value="<mt:var name="cpp_screen_text" escape="html">" /></label></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="cpp_copy_asset"
+    label="<__trans phrase="Copy assets">">
+<ul>
+<li><label><input type="checkbox"<mt:if name="cpp_copy_asset"> checked="checked"</mt:if> name="cpp_copy_asset" id="cpp_copy_asset" /> <__trans phrase="Copy assets at rebuild"></label></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="cpp_remove_file"
+    label="<__trans phrase="Remove file">">
+<ul>
+<li><label><input type="checkbox"<mt:if name="cpp_remove_file"> checked="checked"</mt:if> name="cpp_remove_file" id="cpp_remove_file" /> <__trans phrase="Remove file at rebuild"></label></li>
+</ul>
+</mtapp:setting>
+
