@@ -31,7 +31,7 @@ sub _pre_run {
             my $search = quotemeta( $blogpath );
             $to =~ s/^$search/$outpath/;
             unless ( $fmgr->exists( $from ) ) {
-                return 1;
+                next;
             }
             my $copy = 1;
             if ( $fmgr->exists( $to ) ) {
@@ -47,11 +47,12 @@ sub _pre_run {
                 unless ( $fmgr->exists( $path ) ) {
                     if (! $fmgr->mkpath( $path ) ) {
                         MT->log( MT->translate( "Error making path '[_1]': [_2]", $path, $fmgr->errstr ) );
-                        return 1;
+                        next;
                     }
                 }
                 if ( File::Copy::Recursive::rcopy ( $from, $to ) ) {
                     MT->log( $plugin->translate( "Moving asset '[_1]' failed: [_2]", $from, $fmgr->errstr ) );
+                    next;
                 }
                 my $atime = ( stat $from )[ 8 ];
                 my $mtime = ( stat $from )[ 9 ];
